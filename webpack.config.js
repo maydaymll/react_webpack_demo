@@ -5,5 +5,15 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, "static/dist"),
 		filename: 'bundle.js'
+	},
+	module: {
+		loaders: [{
+			test: /\.jsx?$/,
+			exclude: /node_modules/,
+			loader: 'babel',
+			query: {
+				presets: ['es2015', 'react']
+			}
+		}]
 	}
 };
