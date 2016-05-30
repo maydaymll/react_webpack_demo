@@ -7,13 +7,23 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	module: {
-		loaders: [{
-			test: /\.jsx?$/,
-			exclude: /node_modules/,
-			loader: 'babel',
-			query: {
-				presets: ['es2015', 'react']
+		loaders: [
+			{
+				test: /\.jsx?$/,
+				exclude: /node_modules/,
+				loader: 'babel',
+				query: {
+					presets: ['es2015', 'react']
+				}
+			},
+			{
+				test: /\.(png|jpg|gif)$/,
+				loader: 'url-loader?limit=8192' //用base64编码<=8k的图片
+			},
+			{
+				test: /\.css$/,
+				loader: 'style!css'
 			}
-		}]
+		]
 	}
 };
