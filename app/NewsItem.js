@@ -12,6 +12,9 @@ export default class NewsItem extends React.Component {
 			</div>
 			)
 	}
+	componentDidUpdate () {
+		console.log(222222)
+	}
 
 	getDomain() {
 		return URL.parse(this.props.item.url).hostname;
@@ -26,10 +29,25 @@ export default class NewsItem extends React.Component {
 				{
 					this.props.item.url && 
 					<span className="newsItem-domain">
+						{this.props.rank}
 						<a href={'https://news.ycombinator.com/from?site=' + this.getDomain()}>({this.getDomain()})</a>
 					</span>
 				}
+				<TestComponent/>
 			</div>
 			)
 	}
 }
+
+var TestComponent = React.createClass({
+	componentDidUpdate: function () {
+		console.log(3333333)
+	},
+	render: function () {
+		return (
+			<div>
+				testtesttesttesttesttest
+			</div>
+		)
+	}
+})

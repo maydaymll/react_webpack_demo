@@ -30201,6 +30201,18 @@
 		}
 
 		_createClass(NewsList, [{
+			key: "componentDidMount",
+			value: function componentDidMount() {
+				this.setState({
+					data: 1
+				});
+				setInterval(function () {
+					this.setState({
+						data: 1
+					});
+				}.bind(this), 1000);
+			}
+		}, {
 			key: "render",
 			value: function render() {
 				var testDate = {
@@ -30210,7 +30222,7 @@
 					"kids": [11600476, 11600473, 11600501, 11600463, 11600452, 11600528, 11600421, 11600577, 11600483],
 					"score": 56,
 					"time": 1461985332,
-					"title": "Yahoo's Marissa Mayer could get $55M in severance pay",
+					"title": "Yahoo's Marissa Mayer could get $55M in severance pay11111111",
 					"type": "story"
 					//"url": "http://www.latimes.com/business/technology/la-fi-0429-tn-marissa-mayer-severance-20160429-story.html"
 				};
@@ -30767,6 +30779,11 @@
 				);
 			}
 		}, {
+			key: 'componentDidUpdate',
+			value: function componentDidUpdate() {
+				console.log(222222);
+			}
+		}, {
 			key: 'getDomain',
 			value: function getDomain() {
 				return _url2.default.parse(this.props.item.url).hostname;
@@ -30785,6 +30802,7 @@
 					this.props.item.url && _react2.default.createElement(
 						'span',
 						{ className: 'newsItem-domain' },
+						this.props.rank,
 						_react2.default.createElement(
 							'a',
 							{ href: 'https://news.ycombinator.com/from?site=' + this.getDomain() },
@@ -30792,7 +30810,8 @@
 							this.getDomain(),
 							')'
 						)
-					)
+					),
+					_react2.default.createElement(TestComponent, null)
 				);
 			}
 		}]);
@@ -30801,6 +30820,22 @@
 	}(_react2.default.Component);
 
 	exports.default = NewsItem;
+
+
+	var TestComponent = _react2.default.createClass({
+		displayName: 'TestComponent',
+
+		componentDidUpdate: function componentDidUpdate() {
+			console.log(3333333);
+		},
+		render: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				'testtesttesttesttesttest'
+			);
+		}
+	});
 
 /***/ },
 /* 177 */

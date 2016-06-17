@@ -3,6 +3,16 @@ import NewsHeader from "./NewsHeader.js";
 import NewsItem from "./NewsItem.js";
 
 export default class NewsList extends React.Component {
+	componentDidMount () {
+		this.setState({
+			data: 1
+		})
+		setInterval(function () {
+			this.setState({
+				data: 1
+			})
+		}.bind(this), 1000);
+	}
 	render() {
 		var testDate = {
 		    "by": "bane",
@@ -11,7 +21,7 @@ export default class NewsList extends React.Component {
 		    "kids": [11600476, 11600473, 11600501, 11600463, 11600452, 11600528, 11600421, 11600577, 11600483],
 		    "score": 56,
 		    "time": 1461985332,
-		    "title": "Yahoo's Marissa Mayer could get $55M in severance pay",
+		    "title": "Yahoo's Marissa Mayer could get $55M in severance pay11111111",
 		    "type": "story"
 		    //"url": "http://www.latimes.com/business/technology/la-fi-0429-tn-marissa-mayer-severance-20160429-story.html"
 		}
